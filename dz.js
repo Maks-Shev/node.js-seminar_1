@@ -1,15 +1,15 @@
 const http = require('http');
 
-let rootCount = 0;
+let homeCount = 0;
 let aboutCount = 0;
 
 const server = http.createServer((req, res) =>{
     if (req.url === '/') {
-        rootCount++;
+        homeCount++;
         res.writeHead(200, {
             'Content-Type': 'text/html; charset=utf-8'
         });
-        res.end(`<h1>Главная страница</h1><br><p>Просмотров: ${rootCount}</p><br><a href="/about">Ссылка на страницу /about</a>`);
+        res.end(`<h1>Главная страница</h1><br><p>Просмотров: ${homeCount}</p><br><a href="/about">Ссылка на страницу /about</a>`);
     } else if (req.url === '/about') {
         aboutCount++;
         res.writeHead(200, {
